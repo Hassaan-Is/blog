@@ -1,0 +1,33 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 0.2vw solid rgb(74, 113, 242);
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 10%;
+}
+.navbar .link{
+    width: 20%;
+    padding-left: 1%;
+}
+.navbar .links{
+    margin-left: 55%;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .links a{
+    width: 25%;
+    text-align: center;
+}
+.navbar a{
+    text-decoration: none;
+}
+.links a:hover{
+    opacity: 80%;
+    cursor: pointer;
+}

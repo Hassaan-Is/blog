@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    font-size: 2.7vw;
+}
+h2{
+    font-size: 2.5vw;
+}
+h3{
+    font-size: 2.2vw;
+}
+h4,label{
+    font-size: 2vw;
+}
+p,a,li,ul,input{
+    font-size: 1.5vw;
+}

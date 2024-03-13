@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="loginForm">
+        <form (submit)="createAccount()">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" [(ngModel)]="formData.nom">
+
+            <label for="prenom">Prenom</label>
+            <input type="text" id="prenom" name="prenom" [(ngModel)]="formData.prenom">
+
+            <label for="mail">Mail</label>
+            <input type="email" id="mail" name="mail" [(ngModel)]="formData.mail">
+
+            <label for="telephone">Telephone</label>
+            <input type="text" id="telephone" name="telephone" [(ngModel)]="formData.telephone">
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" [(ngModel)]="formData.password">
+
+            <label for="password2">Confirmer le mot de passe</label>
+            <input type="password" id="password2" name="password2" [(ngModel)]="formData.password2">
+            
+            <input type="submit" class="connectButton" value="S'inscrire">
+            <br>
+            <div *ngIf="accountCreated">Compte créé avec succès</div>
+            <div *ngIf="mdpError">Mots de passe non équivalents</div>
+            
+        </form>
+    </div>
+</body>
+</html>
