@@ -5,7 +5,9 @@
         </a>
     </div>
     <div class="links">
-        <a href="login" style="color:white;background-color: rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Login</a>
-        <a href="signup" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Signup</a>
+        <a href="login" *ngIf="afficheConnect" style="color:white;background-color: rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Login</a>
+        <a href="signup" *ngIf="afficheConnect" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Signup</a>
+        <a href="signout" *ngIf="afficheDeconnect" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Signup</a>
+
     </div>
 </div>
