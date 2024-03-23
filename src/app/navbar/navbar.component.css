@@ -13,21 +13,33 @@
     padding-left: 1%;
 }
 .navbar .links{
-    margin-left: 55%;
+    width: 35%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .sign-links{
+    margin-left: 10%;
     width: 20%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.navbar .links a{
-    width: 25%;
+.navbar .sign-links a{
+    width: 40%;
     text-align: center;
 }
 .navbar a{
     text-decoration: none;
 }
-.links a:hover{
+.sign-links a:hover{
     opacity: 80%;
     cursor: pointer;
+}
+.sign-links img{
+    width: 3vw;
+    height: 3vw;
 }

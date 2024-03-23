@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SessionService } from '../services/session.service';
+
 @Component({
   selector: 'signup-root',
   standalone: true,
@@ -10,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit{
   formData = {
     nom: '',
     prenom: '',
@@ -18,13 +20,18 @@ export class SignupComponent {
     telephone: '',
     password: '',
     password2:'',
-
   };
 
   accountCreated = false;
   mdpError = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient,private sessionService: SessionService, private router: Router) {}
+
+  ngOnInit(): void {
+    if(this.sessionService.sessionExists()){
+      this.router.navigate(['/accueil']);
+    }
+  }
   createAccount() {
     if (this.formData.password !== this.formData.password2) {
       console.error('Les mots de passe ne correspondent pas');

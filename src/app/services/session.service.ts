@@ -1,20 +1,37 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
+  private sessionExistsSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.sessionExists());
+
   constructor() {}
 
   setNom(nom: string) {
-    sessionStorage.setItem('nom', nom); // Stocker la valeur dans sessionStorage
+    sessionStorage.setItem('nom', nom);
+    this.sessionExistsSubject.next(true); // Mettre à jour l'état de la session
+  }
+  
+  getNom(): string | null {
+    if (this.sessionExists()) {
+      return sessionStorage.getItem('nom'); // Récupérer la valeur depuis sessionStorage si la session existe
+    }
+    return null;
   }
 
-  getNom(): string | null {
-    return sessionStorage.getItem('nom'); // Récupérer la valeur depuis sessionStorage
-  }
 
   clearNom() {
-    sessionStorage.removeItem('nom'); // Supprimer la valeur depuis sessionStorage
+    sessionStorage.removeItem('nom');
+    this.sessionExistsSubject.next(false); // Mettre à jour l'état de la session
+  }
+
+  sessionExists(): boolean {
+    return sessionStorage.getItem('nom') !== null;
+  }
+
+  getSessionExistsObservable(): Observable<boolean> {
+    return this.sessionExistsSubject.asObservable();
   }
 }
