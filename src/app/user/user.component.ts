@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'user-root',
@@ -8,20 +9,23 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
   nom: string = '';
   prenom: string = '';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private sessionService: SessionService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    if (!this.sessionService.sessionExists()) {
+      this.router.navigate(['/accueil']); // Rediriger vers la page d'accueil si la session n'existe pas
+    }
     this.route.params.subscribe(params => {
       const nomUtilisateur = params['nom'];
-      
-      if (!nomUtilisateur) {
-        console.error('Le paramètre "nom" est manquant.');
-        return;
-      }
-
       this.fetchUserData(nomUtilisateur);
     });
   }
@@ -31,9 +35,9 @@ export class UserComponent implements OnInit {
 
     this.http.get<any>(url).subscribe(
       (data) => {
-        console.log('Données utilisateur reçues:', data);
         this.nom = data.nom;
         this.prenom = data.prenom;
+        console.log(data);
       },
       (error) => {
         console.error('Erreur lors de la récupération des données utilisateur:', error);
