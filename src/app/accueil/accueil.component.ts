@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {RouterOutlet} from "@angular/router";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-=======
-import { Component } from '@angular/core';
->>>>>>> origin/main
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-<<<<<<< HEAD
   imports: [CommonModule, RouterOutlet,HttpClientModule],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.css'
@@ -49,22 +44,14 @@ class Message{
   }
 }
 
-class Compte{
-  id:number;
-  nom:string;
-  prenom:string;
+class Compte {
+  id: number;
+  nom: string;
+  prenom: string;
 
   constructor(id: number, nom: string, prenom: string) {
     this.id = id;
     this.nom = nom;
     this.prenom = prenom;
   }
-=======
-  imports: [],
-  templateUrl: './accueil.component.html',
-  styleUrl: './accueil.component.css'
-})
-export class AccueilComponent {
-
->>>>>>> origin/main
 }
