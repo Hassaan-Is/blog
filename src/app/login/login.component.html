@@ -14,11 +14,10 @@
             <input type="password" id="password" name="password" [(ngModel)]="formData.password">
             <input type="submit" class="connectButton" value="Se connecter">
             <br>
-            <div *ngIf="accountLogged">Connécté avec succès</div>
-            <div *ngIf="mdpError">Mots de passe érronné</div>
+            <div *ngIf="accountLogged">Connexion validée</div>
+            <div *ngIf="mdpError">Erreur, identifiant ou mot de passe invaldie</div>
             
         </form>
     </div>
-    {{nom}}
 </body>
 </html>

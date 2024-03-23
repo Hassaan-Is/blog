@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -12,7 +12,8 @@ import { SessionService } from '../services/session.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+
+export class LoginComponent implements OnInit {
   formData = {
     nom: '',
     password: '',
@@ -20,22 +21,24 @@ export class LoginComponent {
 
   accountLogged = false;
   mdpError = false;
-  nom: string | null;
 
-
-  constructor(private http: HttpClient, private sessionService: SessionService, private router: Router) {
-    this.nom = this.sessionService.getNom();
+  constructor(private http: HttpClient, private sessionService: SessionService, private router: Router) {}
+  
+  ngOnInit(): void {
+    if(this.sessionService.sessionExists()){
+      this.router.navigate(['/accueil']);
+    }
   }
 
   logAccount() {
-    this.sessionService.setNom(this.formData.nom);
-
     this.http.post<any>('http://localhost:3000/log', this.formData)
       .subscribe(response => {
-        console.log('Réponse du serveur :', response);
+        this.sessionService.setNom(this.formData.nom); // Enregistrer le nom dans la session
         this.accountLogged = true;
         this.mdpError = false;
-        this.router.navigate(['/user/' + this.formData.nom]);
+        if(this.sessionService.sessionExists()) {
+          this.router.navigate(['/user/' + this.formData.nom]);
+        };
       }, error => {
         console.error('Erreur lors de la connexion :', error);
         if (error.status === 401) {
