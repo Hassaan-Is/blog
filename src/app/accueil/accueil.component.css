@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Gabarito:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.message-container{
+  width: 450px;
+  margin: 15px auto;
+}
+
+.message-container-2{
+  width: 100%;
+  position: relative;
+}
+
+.name{
+  color: gray;
+  font-family: "Montserrat", 'sans-serif';
+  font-size: 18px;
+  display: inline-block;
+}
+
+.date{
+  padding-left: 10px;
+  color: black;
+  font-family: "Montserrat", 'sans-serif';
+  font-size: 15px;
+}
+
+.lien{
+  color: royalblue;
+  font-family: "Gabarito", 'sans-serif';
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+}
+
+.text{
+  margin-top: 3px;
+  font-family: "Gabarito", 'sans-serif';
+  font-size: 18px;
+}
