@@ -10,6 +10,6 @@ export const routes: Routes = [
     { path: 'signup', title: 'signup', component: SignupComponent },
     { path: 'accueil', title: 'accueil', component: AccueilComponent },
     { path: 'user/:nom', component: UserComponent },
-    { path: 'user', component: UserComponent, canActivate: [SessionVerif] }, // Utilisation du garde SessionExistsGuard
+    { path: 'user', component: UserComponent, canActivate: [SessionVerif] }, // Utilisation de la verification de session
     { path: '**', redirectTo: '/accueil' }
 ];
