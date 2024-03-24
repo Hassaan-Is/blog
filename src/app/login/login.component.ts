@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.mdpError = false;
         if (response.id) {
           console.log('ID récupéré:', response.id);
-          this.sessionService.setID(this.formData.id); // Enregistrer l'ID dans la session
+          this.sessionService.setID(response.id); // Enregistrer l'ID dans la session
           this.router.navigate(['/user/' + response.id]);
         }
       }, error => {
