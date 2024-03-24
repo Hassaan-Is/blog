@@ -21,6 +21,13 @@ export class SessionService {
     return null;
   }
 
+  getId(): string | null {
+    if(this.sessionExists()) {
+      return sessionStorage.getItem('id');
+    }
+    return null;
+  }
+
 
   clearNom() {
     sessionStorage.removeItem('nom');

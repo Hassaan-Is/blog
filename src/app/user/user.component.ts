@@ -12,6 +12,7 @@ export class UserComponent implements OnInit {
 
   nom: string = '';
   prenom: string = '';
+  id: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +38,7 @@ export class UserComponent implements OnInit {
       (data) => {
         this.nom = data.nom;
         this.prenom = data.prenom;
+        this.id = data.id;
         console.log(data);
       },
       (error) => {
