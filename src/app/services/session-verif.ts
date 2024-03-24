@@ -11,10 +11,15 @@ export class SessionVerif implements CanActivate {
 
     canActivate(): boolean {
         if (this.sessionService.sessionExists()) {
-        const nomUtilisateur = this.sessionService.getNom();
-        this.router.navigate(['/user', nomUtilisateur]); // Rediriger vers /user/nomutilisateur si une session existe
-        return false; // Bloquer l'accès à la route actuelle
+            const idUser = this.sessionService.getId();
+            if (idUser) {
+                this.router.navigate(['/user', idUser]); // Rediriger vers la route user/idUser si une session existe
+            } else {
+                this.router.navigate(['/accueil']); // Rediriger vers la page d'accueil si l'ID de l'utilisateur n'est pas disponible
+            }
+            return false; // Bloquer l'accès à la route actuelle
+        } else {
+            return true; // Autoriser l'accès à la route actuelle si aucune session n'existe
         }
-        return true; // Autoriser l'accès à la route actuelle si aucune session n'existe
     }
 }

@@ -13,6 +13,10 @@ export class SessionService {
     sessionStorage.setItem('nom', nom);
     this.sessionExistsSubject.next(true); // Mettre à jour l'état de la session
   }
+
+  setID(id: string) {
+    sessionStorage.setItem('id', id); // Stocker l'ID dans le sessionStorage
+  }
   
   getNom(): string | null {
     if (this.sessionExists()) {
@@ -21,6 +25,12 @@ export class SessionService {
     return null;
   }
 
+  getId(): string | null {
+    if (this.sessionExists()) {
+      return sessionStorage.getItem('id'); // Récupérer l'ID depuis sessionStorage si la session existe
+    }
+    return null;
+  }
 
   clearNom() {
     sessionStorage.removeItem('nom');

@@ -4,11 +4,11 @@
     align-items: center;
 }
 .loginForm label{
-    margin-top: 2%;
+    margin-top: 1%;
 }
 .loginForm input{
     margin-top: 1%;
-    width: 35%;
+    width: 25%;
 }
 .connectButton{
     margin-top: 4%;

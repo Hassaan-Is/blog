@@ -10,6 +10,7 @@ import { SessionService } from '../services/session.service';
 })
 export class UserComponent implements OnInit {
 
+  id: string = '';
   nom: string = '';
   prenom: string = '';
 
@@ -21,20 +22,31 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (!this.sessionService.sessionExists()) {
-      this.router.navigate(['/accueil']); // Rediriger vers la page d'accueil si la session n'existe pas
-    }
     this.route.params.subscribe(params => {
-      const nomUtilisateur = params['nom'];
-      this.fetchUserData(nomUtilisateur);
+      const userId = params['id'];
+      if (userId) {
+        // Si l'ID utilisateur est présent dans les paramètres de l'URL, utilisez-le
+        this.fetchUserData(userId);
+      } else {
+        // Si aucun ID utilisateur n'est présent dans les paramètres de l'URL,
+        // vérifiez s'il existe un ID utilisateur dans le service de session
+        const currentUserId = this.sessionService.getId();
+        if (currentUserId) {
+          // Utilisez l'ID utilisateur du service de session
+          this.fetchUserData(currentUserId);
+        } else {
+          // Si aucun ID utilisateur n'est trouvé, redirigez vers la page d'accueil
+          this.router.navigate(['/accueil']);
+        }
+      }
     });
   }
-
-  fetchUserData(nomUtilisateur: string): void {
-    const url = `http://localhost:3000/user/${nomUtilisateur}`;
+  fetchUserData(userId: string): void {
+    const url = `http://localhost:3000/user/${userId}`;
 
     this.http.get<any>(url).subscribe(
       (data) => {
+        this.id = data.id;
         this.nom = data.nom;
         this.prenom = data.prenom;
         console.log(data);
@@ -44,4 +56,5 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
 }

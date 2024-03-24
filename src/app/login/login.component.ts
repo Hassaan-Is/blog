@@ -15,6 +15,7 @@ import { SessionService } from '../services/session.service';
 
 export class LoginComponent implements OnInit {
   formData = {
+    id:'',
     nom: '',
     password: '',
   };
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.accountLogged = true;
         this.mdpError = false;
         if(this.sessionService.sessionExists()) {
-          this.router.navigate(['/user/' + this.formData.nom]);
+          this.router.navigate(['/user/' + this.formData.id]);
         };
       }, error => {
         console.error('Erreur lors de la connexion :', error);

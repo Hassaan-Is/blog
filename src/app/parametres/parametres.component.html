@@ -1,0 +1,19 @@
+<div class="loginForm">
+    <form (submit)="updateAccount()">
+        <label for="newNom">Nouveau Nom</label>
+        <input type="text" required id="newNom" name="newNom" [(ngModel)]="formData.nom">
+
+        <label for="prenom">Prenom</label>
+        <input type="text" required id="prenom" name="prenom" [(ngModel)]="formData.prenom">
+
+        <label for="mail">Mail</label>
+        <input type="email" required id="mail" name="mail" [(ngModel)]="formData.email">
+
+        <label for="telephone">Telephone</label>
+        <input type="number" required id="telephone" name="telephone" [(ngModel)]="formData.telephone">
+ 
+        <input type="submit" class="updateButton" value="Mettre à jour">
+        <br>
+        <div *ngIf="accountUpdated">Identifiants mis à jour</div>
+    </form>
+</div>
