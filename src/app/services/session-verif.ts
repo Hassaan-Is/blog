@@ -13,13 +13,14 @@ export class SessionVerif implements CanActivate {
         if (this.sessionService.sessionExists()) {
             const idUser = this.sessionService.getId();
             if (idUser) {
-                this.router.navigate(['/user', idUser]); // Rediriger vers la route user/idUser si une session existe
+                this.router.navigate(['/user', idUser]);
+                return false;
             } else {
-                this.router.navigate(['/accueil']); // Rediriger vers la page d'accueil si l'ID de l'utilisateur n'est pas disponible
+                this.router.navigate(['/accueil']);
+                return false;
             }
-            return false; // Bloquer l'accès à la route actuelle
         } else {
-            return true; // Autoriser l'accès à la route actuelle si aucune session n'existe
+            return true;
         }
     }
 }

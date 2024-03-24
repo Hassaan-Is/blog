@@ -12,33 +12,36 @@ export class SessionService {
   setNom(nom: string) {
     sessionStorage.setItem('nom', nom);
     this.sessionExistsSubject.next(true); // Mettre à jour l'état de la session
+    console.log('Nom de session enregistré :', nom);
   }
 
   setID(id: string) {
     sessionStorage.setItem('id', id); // Stocker l'ID dans le sessionStorage
+    console.log('ID de session enregistré :', id);
   }
   
   getNom(): string | null {
-    if (this.sessionExists()) {
-      return sessionStorage.getItem('nom'); // Récupérer la valeur depuis sessionStorage si la session existe
-    }
-    return null;
+    const nom = sessionStorage.getItem('nom');
+    console.log('Nom de session récupéré :', nom);
+    return nom;
   }
 
   getId(): string | null {
-    if (this.sessionExists()) {
-      return sessionStorage.getItem('id'); // Récupérer l'ID depuis sessionStorage si la session existe
-    }
-    return null;
+    const id = sessionStorage.getItem('id');
+    console.log('ID de session récupéré :', id);
+    return id;
   }
 
   clearNom() {
     sessionStorage.removeItem('nom');
     this.sessionExistsSubject.next(false); // Mettre à jour l'état de la session
+    console.log('Nom de session effacé');
   }
 
   sessionExists(): boolean {
-    return sessionStorage.getItem('nom') !== null;
+    const exists = sessionStorage.getItem('nom') !== null;
+    console.log('Session existe :', exists);
+    return exists;
   }
 
   getSessionExistsObservable(): Observable<boolean> {

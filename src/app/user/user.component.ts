@@ -29,7 +29,6 @@ export class UserComponent implements OnInit {
         this.fetchUserData(userId);
       } else {
         // Si aucun ID utilisateur n'est présent dans les paramètres de l'URL,
-        // vérifiez s'il existe un ID utilisateur dans le service de session
         const currentUserId = this.sessionService.getId();
         if (currentUserId) {
           // Utilisez l'ID utilisateur du service de session
@@ -40,7 +39,8 @@ export class UserComponent implements OnInit {
         }
       }
     });
-  }
+}
+
   fetchUserData(userId: string): void {
     const url = `http://localhost:3000/user/${userId}`;
 
