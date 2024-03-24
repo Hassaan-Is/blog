@@ -5,6 +5,7 @@ import { UserComponent } from './user/user.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { SessionVerif } from './services/session-verif';
 import { ParametresComponent } from './parametres/parametres.component';
+import { MessageComponent } from './message/message.component';
 
 export const routes: Routes = [
     { path: 'login', title: 'login', component: LoginComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'user/:id', component: UserComponent },
     { path: 'parametres/:id', component: ParametresComponent },
     { path: 'user', component: UserComponent, canActivate: [SessionVerif] },
+    { path:'message', title: 'message', component: MessageComponent},
     { path: '**', redirectTo: '/accueil' }
 ];
