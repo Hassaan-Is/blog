@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+</head>
+  <body>
+    @for (message of listMessage; track index){
+      <div class="message-container">
+        <div class="message-container-2">
+          <p class="name"><a>{{ message.compte.prenom }} {{ message.compte.nom }}</a> <span class="date">{{ message.date }}</span></p>
+          <a class="lien">Voir profil</a>
+        </div>
+        <p class="text">{{ message.text }}</p>
+      </div>
+    }
+
+  </body>
+</html>
+
+
+=======
 <p>accueil works!</p>
+>>>>>>> origin/main
