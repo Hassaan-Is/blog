@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Ajout de Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      <form (submit)="createMessage()">
+        <div class="form-group">
+          <label for="titreMessage">Titre du message :</label>
+          <input type="text" class="form-control" id="titreMessage" name="titreMessage" [(ngModel)]="formData.titre">
+        </div>
+        <div class="form-group">
+          <label for="contenuMessage">Contenu du message :</label>
+          <textarea class="form-control" id="contenuMessage" name="contenuMessage" rows="4" placeholder="Saisissez votre message" [(ngModel)]="formData.text"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Publier le message</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
