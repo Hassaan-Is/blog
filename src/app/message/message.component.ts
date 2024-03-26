@@ -36,7 +36,7 @@ export class MessageComponent implements OnInit{
       console.log('Compte créé avec succès :', response);
       this.messageCreated = true;
       setTimeout(() => {
-        this.router.navigate(['/user']); // Rediriger vers la page "login" après un délai de 2 secondes
+        this.router.navigate(['/user']); // Rediriger vers la page "user"
       }, 1000); 
     }, error => {
       // Gérer les erreurs ici, par exemple, afficher un message d'erreur
