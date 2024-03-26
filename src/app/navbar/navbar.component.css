@@ -43,3 +43,13 @@
     width: 3vw;
     height: 3vw;
 }
+.link img{
+    width: 10vw;
+    height: 3vw;
+}
+.links a:hover{
+    opacity: 50%;
+}
+.links a{
+    color: black;
+}

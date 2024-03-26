@@ -4,19 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="loginForm">
-        <form (submit)="logAccount()">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" [(ngModel)]="formData.nom">
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" [(ngModel)]="formData.password">
-            <input type="submit" class="connectButton" value="Se connecter">
-            <br>
-            <div *ngIf="accountLogged">Connexion validée</div>
-            <div *ngIf="mdpError">Erreur, identifiant ou mot de passe invalide</div>
-        </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                    Connexion
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="logAccount()">
+                            <div class="form-group">
+                                <label for="email">email</label>
+                                <input type="email" class="form-control" id="email" [(ngModel)]="formData.email" name="nom" placeholder="Entrez votre mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" [(ngModel)]="formData.password" name="password" placeholder="Entrez votre mot de passe">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

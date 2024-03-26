@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
   <body>
-    @for (message of listMessage; track index){
-      <div class="message-container">
-        <div class="message-container-2">
-          <p class="name"><a>{{ message.compte.prenom }} {{ message.compte.nom }}</a> <span class="date">{{ message.date }}</span></p>
-          <a class="lien">Voir profil</a>
-        </div>
-        <p class="text">{{ message.text }}</p>
+    <div class="container mt-5">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <div class="card" *ngFor="let message of listMessage">
+                  <div class="card-body">
+                      <h2 class="card-title">{{ message.titre }}</h2>
+                      <p class="card-text"><strong>{{ message.compte.nom }} {{message.compte.prenom}}</strong></p>
+                      <p class="card-text text-muted">{{ message.text }}</p>
+                      <p class="card-text"><strong>Date:</strong> {{ message.date }}</p>
+                  </div>
+              </div>
+          </div>
       </div>
-    }
-
+  </div>
   </body>
 </html>
-
-
-=======
-<p>accueil works!</p>
->>>>>>> origin/main

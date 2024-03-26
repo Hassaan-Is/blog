@@ -1,19 +1,49 @@
-<div class="loginForm">
-    <form (submit)="updateAccount()">
-        <label for="newNom">Nouveau Nom</label>
-        <input type="text" required id="newNom" name="newNom" [(ngModel)]="formData.nom">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de mise à jour du compte utilisateur</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 
-        <label for="prenom">Prenom</label>
-        <input type="text" required id="prenom" name="prenom" [(ngModel)]="formData.prenom">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form (submit)="updateAccount()">
+                        <div class="form-group">
+                            <label for="newNom">Nom</label>
+                            <input type="text" required id="newNom" class="form-control" name="newNom" [(ngModel)]="formData.nom">
+                        </div>
 
-        <label for="mail">Mail</label>
-        <input type="email" required id="mail" name="mail" [(ngModel)]="formData.email">
+                        <div class="form-group">
+                            <label for="prenom">Prenom</label>
+                            <input type="text" required id="prenom" class="form-control" name="prenom" [(ngModel)]="formData.prenom">
+                        </div>
 
-        <label for="telephone">Telephone</label>
-        <input type="number" required id="telephone" name="telephone" [(ngModel)]="formData.telephone">
- 
-        <input type="submit" class="updateButton" value="Mettre à jour">
-        <br>
-        <div *ngIf="accountUpdated">Identifiants mis à jour</div>
-    </form>
+                        <div class="form-group">
+                            <label for="mail">Mail</label>
+                            <input type="email" required id="mail" class="form-control" name="mail" [(ngModel)]="formData.email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telephone">Telephone</label>
+                            <input type="number" required id="telephone" class="form-control" name="telephone" [(ngModel)]="formData.telephone">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                        <br>
+                        <div *ngIf="accountUpdated" class="mt-2 alert alert-success">Identifiants mis à jour</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+</body>
+</html>

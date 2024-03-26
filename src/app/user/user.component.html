@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utilisateur</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
-<div class="user">
-    <h3>{{ nom }}</h3>
-    <h3>{{ prenom }}</h3>
-    <p>Blogs : 2</p>
-    <a href="parametres/{{id}}" class="params">paramètres</a>
-</div>  
+<div class="container mt-5" id="messages">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h3 class="card-title">{{ nom }}</h3>
+                    <h3 class="card-title">{{ prenom }}</h3>
+                    <a href="parametres/{{id}}" class="btn btn-primary">Paramètres</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" *ngFor="let message of messages">
+                <div class="card-body">
+                    <h2 class="card-title">{{ message.titre }}</h2>
+                    <p class="card-text"><strong>{{ message.nom }} {{message.prenom}}</strong></p>
+                    <p class="card-text text-muted">{{ message.text }}</p>
+                    <p class="card-text"><strong>Date:</strong> {{ message.date }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>

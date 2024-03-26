@@ -24,7 +24,7 @@ export class AccueilComponent implements OnInit{
     this.http.get<any[]>('http://localhost:3000/messages')
       .subscribe((data: any[]) => {
         data.forEach(item => {
-          this.listMessage.push(new Message(item.id, item.date, item.text, new Compte(item.idCompte, item.nom, item.prenom)));
+          this.listMessage.push(new Message(item.id,item.titre, item.date, item.text, new Compte(item.idCompte, item.nom, item.prenom)));
         });
       });
   }
@@ -32,14 +32,17 @@ export class AccueilComponent implements OnInit{
 
 class Message{
   id:number;
+  titre:string;
   date: string;
   text: string;
   compte:Compte;
 
-  constructor(id: number, date: string, text: string, compte: Compte) {
+  constructor(id: number,titre: string,date: string ,text: string, compte: Compte) {
     this.id = id;
+    this.titre = titre;
     this.date = date;
     this.text = text;
+    this.titre = titre;
     this.compte = compte;
   }
 }
