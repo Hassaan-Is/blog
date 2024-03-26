@@ -14,9 +14,9 @@
               <div class="card" *ngFor="let message of listMessage">
                   <div class="card-body">
                       <h2 class="card-title">{{ message.titre }}</h2>
-                      <p class="card-text"><strong>{{ message.compte.nom }} {{message.compte.prenom}}</strong></p>
                       <p class="card-text text-muted">{{ message.text }}</p>
                       <p class="card-text"><strong>Date:</strong> {{ message.date }}</p>
+                      <a href="user/{{message.compte.id}}">Par {{message.compte.nom}} {{message.compte.prenom}}</a>
                   </div>
               </div>
           </div>

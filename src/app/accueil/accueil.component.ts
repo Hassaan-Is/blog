@@ -20,6 +20,7 @@ export class AccueilComponent implements OnInit{
     this.fetchMessage();
   }
 
+  
   fetchMessage() {
     this.http.get<any[]>('http://localhost:3000/messages')
       .subscribe((data: any[]) => {

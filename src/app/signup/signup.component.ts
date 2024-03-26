@@ -36,18 +36,15 @@ export class SignupComponent implements OnInit{
     if (this.formData.password !== this.formData.password2) {
       console.error('Les mots de passe ne correspondent pas');
       this.mdpError = true;
-      // Afficher un message d'erreur ou effectuer une action appropriée
       return;
     }
     else{
     this.http.post<any>('http://localhost:3000/create', this.formData)
       .subscribe(response => {
-        // Gérer la réponse du serveur ici, par exemple, afficher un message de succès
-        console.log('Compte créé avec succès :', response);
         this.accountCreated = true;
         setTimeout(() => {
-          this.router.navigate(['/login']); // Rediriger vers la page "login" après un délai de 2 secondes
-        }, 2000); 
+          this.router.navigate(['/login']); // Rediriger vers la page "login"
+        }, 1000); 
       }, error => {
         // Gérer les erreurs ici, par exemple, afficher un message d'erreur
         console.error('Erreur lors de la création du compte :', error);

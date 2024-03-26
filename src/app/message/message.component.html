@@ -16,6 +16,12 @@
           <label for="contenuMessage">Contenu du message :</label>
           <textarea class="form-control" id="contenuMessage" name="contenuMessage" rows="4" placeholder="Saisissez votre message" [(ngModel)]="formData.text"></textarea>
         </div>
+        <div class="form-group">
+          <!-- Ajout des boutons en fonction de la visibilité -->
+          <button type="button" class="btn btn-{{formData.visibiliter == '0' ? 'danger' : 'primary'}}" (click)="changeVisibility('0')">Privé</button>
+          <span class="mx-2"></span> 
+          <button type="button" class="btn btn-{{formData.visibiliter == '1' ? 'danger' : 'primary'}}" (click)="changeVisibility('1')">Public</button>
+        </div>
         <button type="submit" class="btn btn-primary">Publier le message</button>
       </form>
     </div>

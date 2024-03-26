@@ -47,7 +47,6 @@ export class ParametresComponent implements OnInit {
     console.log('Données du formulaire à envoyer:', this.formData);
     this.http.post<any>(`http://localhost:3000/update/${this.formData.id}`, this.formData)
       .subscribe(response => {
-        console.log('Réponse du serveur après mise à jour:', response);
         this.accountUpdated = true;
         setTimeout(() => {
           this.router.navigate(['/user']);
@@ -63,7 +62,6 @@ export class ParametresComponent implements OnInit {
   
     this.http.get<any>(url).subscribe(
       (data) => {
-        console.log('Données récupérées:', data);
         this.formData.id = data.id;
         this.formData.nom = data.nom;
         this.formData.prenom = data.prenom;
