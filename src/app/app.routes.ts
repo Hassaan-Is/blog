@@ -15,5 +15,6 @@ export const routes: Routes = [
     { path: 'user/:id', component: UserComponent },
     { path: 'parametres/:id', component: ParametresComponent },
     { path: 'user', component: UserComponent, canActivate: [SessionVerif] },
+    { path:'message', title: 'message', component: MessageComponent},
     { path: '**', redirectTo: '/accueil' }
 ];

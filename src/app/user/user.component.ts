@@ -82,38 +82,33 @@ this.http.get<any>(url).subscribe(
 );
 }
 
-fetchUserMessages(userId: string): void {
-const url = `http://localhost:3000/messages/${userId}`;
-
-this.http.get<any[]>(url)
-  .subscribe((data: any[]) => {
-    this.messages = data; // Assignez directement les données reçues aux messages
-    console.log('Messages récupérés avec succès :', this.messages);
-  },
-  (error) => {
-    console.error('Erreur lors de la récupération des messages utilisateur:', error);
+  fetchUserMessages(userId: string): void {
+    const url = `http://localhost:3000/messages/${userId}`;
+  
+    this.http.get<any[]>(url)
+      .subscribe((data: any[]) => {
+        // Réinitialiser le tableau des messages pour éviter les doublons
+        this.messages = [];
+        
+        // Parcourir les données reçues et les ajouter au tableau des messages
+        data.forEach(item => {
+          this.messages.push({
+            id: item.id,
+            date: item.date,
+            nom: item.nom,
+            prenom: item.prenom,
+            text: item.text,
+            compte: { id: item.idCompte, nom: item.nom, prenom: item.prenom }
+          });
+        });
+  
+        console.log('Messages récupérés avec succès :', this.messages);
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des messages utilisateur:', error);
+      }
+    );
   }
-);
-}
-
-followUser(idSuivis: string) {
-const idCompte = this.sessionService.getId(); // Obtenez l'ID de session
-console.log('ID de compte:', idCompte);
-console.log('ID à suivre:', idSuivis);
-
-const url = 'http://localhost:3000/suivre';
-const body = { idCompte: idCompte, idSuivis: idSuivis };
-
-this.http.post(url, body)
-  .subscribe(
-    (response: any) => {
-      console.log('Réponse du serveur:', response);
-      // Implémentez ici la logique supplémentaire si nécessaire, par exemple, actualiser les données utilisateur
-    },
-    (error: any) => {
-      console.error('Erreur lors de la requête au serveur:', error);
-      // Implémentez ici la gestion des erreurs, par exemple, afficher un message à l'utilisateur
-    }
-  );
-}
+  
+  
 }
