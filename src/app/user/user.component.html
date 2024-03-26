@@ -16,7 +16,7 @@
                 <div class="card-body text-center">
                     <h3 class="card-title">{{ nom }}</h3>
                     <h3 class="card-title">{{ prenom }}</h3>
-                    <a href="parametres/{{id}}" class="btn btn-primary">Paramètres</a>
+                    <a href="parametres/{{id}}"  *ngIf="!droitConnecte"class="btn btn-primary">Paramètres</a>
                 </div>
             </div>
         </div>
@@ -24,7 +24,11 @@
 </div>
 
 <div class="text-center">
-    <a href="message" class="btn btn-primary">Créer un message</a>
+    <a href="message"  *ngIf="!droitConnecte" class="btn btn-primary">Créer un message</a>
+</div>
+<br>
+<div class="text-center">
+    <button *ngIf="droitConnecte" class="btn btn-warning" (click)="followUser(id)">Suivre</button>
 </div>
   
 <div class="container mt-5">
