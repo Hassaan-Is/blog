@@ -1,8 +1,6 @@
 <div class="navbar">
     <div class="link">
-        <a href=""style="text-decoration: none; color:black">
-            <h1>Blog MIAGE</h1>
-        </a>
+            <a href="accueil"><img src="../../assets/logo-miage.png"alt="logo"></a>
     </div>
     <div class="links">
         <a href="tendance">Tendance</a>
@@ -10,8 +8,8 @@
         <a href="recent">Recents</a>
     </div>
     <div class="sign-links">
-        <a href="login" *ngIf="!sessionExists" style="color:white;background-color: rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Login</a>
-        <a href="signup" *ngIf="!sessionExists" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 2%;">Signup</a>
+        <a href="login" *ngIf="!sessionExists" style="color:white;background-color: rgb(74, 113, 242);border-radius: 1vw;padding: 1%;">Connexion</a>
+        <a href="signup" *ngIf="!sessionExists" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 1%;">Inscription</a>
         <a href="user" *ngIf="sessionExists" > <img src="../../assets/logocompte.png"></a>
         <button (click)="endSession()" *ngIf="sessionExists" style="color:rgb(74, 113, 242);border: 0.2vw solid rgb(74, 113, 242);border-radius: 1vw;padding: 2%; background-color: white;">Deconnexion</button>
     </div>

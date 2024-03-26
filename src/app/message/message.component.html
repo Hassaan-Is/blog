@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <div class="message">
-            <form (submit)="createMessage()">
-
-            </form>
-            <label for="lblTitreMessage" name="lblTitreMessage" id="lblTitreMessage">Titre du message : </label>
-            <br>
-            <input type="text" [(ngModel)]="formData.titre">
-            <br>
-            <label for="lblDateMessage" name="lblDateMessage" id="lblDateMessage">Date : </label>
-            <br>
-            <input type="text" [(ngModel)]="formData.date" disabled>
-            <br>
-            <label for="lblAuteurMessage" name="lblAuteurMessage" id="lblAuteurMessage">Auteur : </label>
-            <br>
-            <input type="text" value="{{nom}}">
-            <br>
-            <label>Contenu du message : </label>
-            <br>
-            <textarea for="contenuMessage" name="contenuMessage" id="contenuMessage" rows="4" cols="50" placeholder="Saisissez votre message" [(ngModel)]="formData.contenu"></textarea>
-            <a href="" class="creer">Publier le message</a>        
+<head>
+  <!-- Ajout de Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      <form (submit)="createMessage()">
+        <div class="form-group">
+          <label for="titreMessage">Titre du message :</label>
+          <input type="text" class="form-control" id="titreMessage" name="titreMessage" [(ngModel)]="formData.titre">
         </div>
-    </body>
+        <div class="form-group">
+          <label for="contenuMessage">Contenu du message :</label>
+          <textarea class="form-control" id="contenuMessage" name="contenuMessage" rows="4" placeholder="Saisissez votre message" [(ngModel)]="formData.text"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Publier le message</button>
+      </form>
+    </div>
+  </div>
+</body>
 </html>
-

@@ -16,7 +16,8 @@ import { SessionService } from '../services/session.service';
 export class LoginComponent implements OnInit {
   formData = {
     id: '',
-    nom: '',
+    nom:'',
+    email: '',
     password: '',
   };
 

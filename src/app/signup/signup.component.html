@@ -3,35 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>Inscription</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="loginForm">
-        <form (submit)="createAccount()">
-            <label for="nom">Nom</label>
-            <input type="text" required id="nom" name="nom" [(ngModel)]="formData.nom">
-
-            <label for="prenom">Prenom</label>
-            <input type="text" required id="prenom" name="prenom" [(ngModel)]="formData.prenom">
-
-            <label for="mail">Mail</label>
-            <input type="email" required id="mail" name="mail" [(ngModel)]="formData.mail">
-
-            <label for="telephone">Telephone</label>
-            <input type="number" minlength="10" maxlength="10" id="telephone" name="telephone" [(ngModel)]="formData.telephone">
-
-            <label for="password">Mot de passe</label>
-            <input type="password" minlength="8" id="password" name="password" [(ngModel)]="formData.password">
-
-            <label for="password2">Confirmer le mot de passe</label>
-            <input type="password" minlength="8" required id="password2" name="password2" [(ngModel)]="formData.password2">
-            
-            <input type="submit" class="connectButton" value="S'inscrire">
-            <br>
-            <div *ngIf="accountCreated">Compte créé avec succès</div>
-            <div *ngIf="mdpError">Mots de passe non équivalents</div>
-            
-        </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Inscription
+                    </div>
+                    <div class="card-body">
+                        <form (submit)="createAccount()">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" required id="nom" class="form-control" name="nom" [(ngModel)]="formData.nom" placeholder="Entrez votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prenom</label>
+                                <input type="text" required id="prenom" class="form-control" name="prenom" [(ngModel)]="formData.prenom" placeholder="Entrez votre prénom">
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">Mail</label>
+                                <input type="email" required id="mail" class="form-control" name="mail" [(ngModel)]="formData.mail" placeholder="Entrez votre adresse e-mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Telephone</label>
+                                <input type="number" required minlength="10" maxlength="10" id="telephone" class="form-control" name="telephone" [(ngModel)]="formData.telephone" placeholder="Entrez votre numéro de téléphone">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" required minlength="8" id="password" class="form-control" name="password" [(ngModel)]="formData.password" placeholder="Entrez votre mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Confirmer le mot de passe</label>
+                                <input type="password" required minlength="8" id="password2" class="form-control" name="password2" [(ngModel)]="formData.password2" placeholder="Confirmez votre mot de passe">
+                            </div>
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                            <br><br>
+                            <div *ngIf="accountCreated">Compte créé avec succès</div>
+                            <div *ngIf="mdpError">Les mots de passe ne correspondent pas</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
